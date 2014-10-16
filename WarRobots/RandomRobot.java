@@ -1,0 +1,4 @@
+class RandomRobot
+{
+    //Add Content
+}
