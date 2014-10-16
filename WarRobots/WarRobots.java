@@ -1,16 +1,17 @@
-import static dit948.Random.*;
-
+//Import Becker's robot library
 import becker.Robots.*;
 
+//A abstract class which allows us to save the implements Runnable later
 public abstract class WarRobot extends RobotSE implements Runnable
 {
-    private City city;
-
-    public WarRobot(City city)
+    //Constructor which calls the super constructor
+    public WarRobot(City city, int street, int avenue, Direction dir)
     {
-	this.city = city;
+	//Call the super constr.
+	super(city, street, avenue, dir);
     }
     
+    //The runnable method
     public void run()
     {
 	//Override this function
