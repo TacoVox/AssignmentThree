@@ -7,8 +7,8 @@ import javax.swing.*;
 
 import java.awt.*;
 
-import WarRobots.*;
-import Listeners.*;
+import warrobots.*;
+import listeners.*;
 
 
 
@@ -21,8 +21,8 @@ public class RobotWars
 	private JPanel controlPanel;	// panel for the control buttons
 	private JMenuBar menuBar;		// the menu bar
 	
-	private int size = 11;
-	private double currentSpeed = 2.0;
+	private int size = 11;			// size of city (number of streets and avenues)
+	private double currentSpeed = 1.0;	// starting speed of random robot
 	
 	/**
 	 *  A constructor-creates a new frame with a menu bar,
@@ -30,13 +30,13 @@ public class RobotWars
 	 */
 	public RobotWars()
 	{
-		gameFrame = new JFrame("Robot Wars");
-		gameFrame.setVisible(true);
-		gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		createMenuBar();
-		createMainPanel();
-		createControlPanel();
-		createCity(size, size, currentSpeed);
+		gameFrame = new JFrame("Robot Wars");	// create frame
+		gameFrame.setVisible(true);				// set visible
+		gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	// set closing option
+		createMenuBar();		// create and add menu bar
+		createMainPanel();		// create and add main panel
+		createControlPanel();	// create and add control panel
+		createCity(size, size, currentSpeed);		// create and add city
 	}
 	
 	
@@ -46,11 +46,10 @@ public class RobotWars
 	 */
 	private void createMainPanel()
 	{
-		gamePanel = new JPanel(null);
-		gamePanel.setLayout(new BorderLayout());
-		
-		gameFrame.setContentPane(gamePanel);
-		
+		gamePanel = new JPanel(null);		// create panel
+		gamePanel.setLayout(new BorderLayout());		// set layout manager
+			
+		gameFrame.setContentPane(gamePanel);	// add panel to frame
 		gameFrame.pack();
 	}
 	
@@ -61,48 +60,43 @@ public class RobotWars
 	 */
 	private void createControlPanel()
 	{
-		JButton button;
+		JButton button;		// declare variable for buttons
 		
-		controlPanel = new JPanel(null);
-		controlPanel.setLayout(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
+		controlPanel = new JPanel(null);	// create a panel for controls
+		controlPanel.setLayout(new GridBagLayout());	// set layout manager
+		GridBagConstraints c = new GridBagConstraints();	// variable for constraints on the position of buttons
 		
-		button = new JButton("UP");
+		button = new JButton("UP");		// button to move up
+		button.setPreferredSize(new Dimension(100, 30));	// set size of button
+		c.gridx = 1;		// position of button on x-axis
+		c.gridy = 0;		// position of button on y-axis
+		controlPanel.add(button, c);	// add button to control panel
+		
+		button = new JButton("DOWN");		// button to move down
 		button.setPreferredSize(new Dimension(100, 30));
-		c.anchor = GridBagConstraints.PAGE_START;
-		c.gridx = 1;
-		c.gridy = 0;
-		controlPanel.add(button, c);
-		
-		button = new JButton("DOWN");
-		button.setPreferredSize(new Dimension(100, 30));
-		c.anchor = GridBagConstraints.PAGE_END;
 		c.gridx = 1;
 		c.gridy = 2;
 		controlPanel.add(button, c);
 		
-		button = new JButton("PICK");
+		button = new JButton("PICK");		// button to pick things
 		button.setPreferredSize(new Dimension(100, 30));
-		c.anchor = GridBagConstraints.CENTER;
 		c.gridx = 1;
 		c.gridy = 1;
 		controlPanel.add(button, c);
 		
-		button = new JButton("LEFT");
+		button = new JButton("LEFT");		// button to move left
 		button.setPreferredSize(new Dimension(100, 30));
-		c.anchor = GridBagConstraints.LINE_START;
 		c.gridx = 0;
 		c.gridy = 1;
 		controlPanel.add(button, c);
 		
-		button = new JButton("RIGHT");
+		button = new JButton("RIGHT");		// button to move right
 		button.setPreferredSize(new Dimension(100, 30));
-		c.anchor = GridBagConstraints.LINE_END;
 		c.gridx = 2;
 		c.gridy = 1;
 		controlPanel.add(button, c);
 		
-		gamePanel.add(controlPanel, BorderLayout.SOUTH);
+		gamePanel.add(controlPanel, BorderLayout.SOUTH);		// add control panel to main panel at the bottom
 		
 		gameFrame.pack();
 		
@@ -117,41 +111,41 @@ public class RobotWars
 	 */
 	private void createMenuBar()
 	{
-		menuBar = new JMenuBar();
+		menuBar = new JMenuBar();		// a menu bar
 		
-		JMenu actions = new JMenu("Actions");
+		JMenu actions = new JMenu("Actions");		// actions menu
 		
-		JMenuItem pause = new JMenuItem("Pause");
-		pause.addActionListener(new PauseResumeListener(this));
-		actions.add(pause);
-		JMenuItem resume = new JMenuItem("Resume");
-		resume.addActionListener(new PauseResumeListener(this));
-		actions.add(resume);
+		JMenuItem pause = new JMenuItem("Pause");		// menu item pause
+		pause.addActionListener(new PauseResumeListener(this));		// add action listener to pause
+		actions.add(pause);			// add pause to actions menu
+		JMenuItem resume = new JMenuItem("Resume");		// menu item resume
+		resume.addActionListener(new PauseResumeListener(this));		// add listener
+		actions.add(resume);		// add to actions menu
 		
-		menuBar.add(actions);
+		menuBar.add(actions);		// add actions menu to menu bar
 		
-		JMenu settings = new JMenu("Settings");
+		JMenu settings = new JMenu("Settings");		// settings menu
 		
-		JRadioButton easy = new JRadioButton("Easy");
-		easy.addActionListener(new SetSpeedListener(this, 0.5));
-		JRadioButton normal = new JRadioButton("Normal");
-		normal.addActionListener(new SetSpeedListener(this, 1.0));
-		normal.setSelected(true);
-		JRadioButton hard = new JRadioButton("Hard");
-		hard.addActionListener(new SetSpeedListener(this, 2.0));
+		JRadioButton easy = new JRadioButton("Easy");		// radio button for level easy
+		easy.addActionListener(new SetSpeedListener(this, 0.5));		// add action listener
+		JRadioButton normal = new JRadioButton("Normal");		// radio button for normal level
+		normal.addActionListener(new SetSpeedListener(this, 1.0));		// add listener
+		normal.setSelected(true);			// normal is the selected button by default
+		JRadioButton hard = new JRadioButton("Hard");		// radio button for hard level
+		hard.addActionListener(new SetSpeedListener(this, 2.0));	// add listener
 		
-		ButtonGroup group = new ButtonGroup();
-		group.add(easy);
-		group.add(normal);
-		group.add(hard);
+		ButtonGroup group = new ButtonGroup();		// button group for radio buttons
+		group.add(easy);		// add radio
+		group.add(normal);		// buttons 
+		group.add(hard);		// to button group
 		
-		settings.add(easy);
-		settings.add(normal);
-		settings.add(hard);
+		settings.add(easy);			// add radio 
+		settings.add(normal);		// buttons to 
+		settings.add(hard);			// settings menu
 		
-		menuBar.add(settings);	
+		menuBar.add(settings);		// add settings menu to menu bar
 		
-		gameFrame.setJMenuBar(menuBar);
+		gameFrame.setJMenuBar(menuBar);		// add menu bar to frame
 	}
 	
 	
@@ -160,7 +154,7 @@ public class RobotWars
 	 */
 	private void createWalls()
 	{
-		for (int i=0; i<size; i++)
+		for (int i=0; i<size; i++)		
 		{
 			new Wall(gameCity, 0, i, Direction.NORTH);
 			new Wall(gameCity, size-1, i, Direction.SOUTH);
@@ -178,21 +172,21 @@ public class RobotWars
 	 */
 	private void createCity(int str, int ave, double speed)
 	{
-		City.showFrame(false);
+		City.showFrame(false);		// set city frame to be unvisible
 		
-		gameCity = new City(0, 0, size, size);
-		// create robots here and threads (do not start!!!)
+		gameCity = new City(0, 0, size, size);		// create a city
 		
 		RobotUIComponents uic = new RobotUIComponents(gameCity, 0, 0, size, size);
-		CityView cv = uic.getCityView();
 		
-		gamePanel.add(cv, BorderLayout.NORTH);
+		CityView cv = uic.getCityView();		// get a view of the city
+		
+		gamePanel.add(cv, BorderLayout.NORTH);		// add city view to main panel in top position
 		
 		gameFrame.pack();
 		
-		prButton = uic.getStartStopButton();
+		prButton = uic.getStartStopButton();		// get a start/stop button
 		
-		createWalls();
+		createWalls();		// create walls
 		
 		RandomRobot karel = new RandomRobot(gameCity, 2, 2, Direction.EAST);
 		
@@ -240,7 +234,7 @@ public class RobotWars
 
 	
 	/**
-	 * 
+	 *  A method to set the speed of the random robot.
 	 */
 	public void setSpeed(double speed)
 	{
