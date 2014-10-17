@@ -30,7 +30,7 @@ class RandomRobot extends WarRobot
 	{
 		turns = randomInt(4);
 		
-		switch(turns):
+		switch(turns)
 		{
 		case 0:
 		    break;
