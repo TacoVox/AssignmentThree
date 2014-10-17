@@ -1,5 +1,5 @@
 //Assign package name
-package WarRobots;
+package warrobots;
 
 //Import Becker's robot library
 import becker.robots.*;
@@ -13,11 +13,9 @@ public abstract class WarRobot extends RobotSE implements Runnable
 	//Call the super constr.
 	super(city, street, avenue, dir);
     }
-    
     //The runnable method
     public void run()
     {
 	//Override this function
     }
-    
 }
