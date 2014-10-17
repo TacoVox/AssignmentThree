@@ -1,3 +1,6 @@
+//Assign package name                                                         
+package WarRobots;
+
 //Import Becker's robot library
 import becker.robots.*;
 

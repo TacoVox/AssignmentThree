@@ -1,5 +1,3 @@
-
-
 // import galleries
 import becker.robots.*;
 
