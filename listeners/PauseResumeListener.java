@@ -3,7 +3,8 @@ package listeners;
 
 //Import necessary libraries
 import java.awt.event.*;
-import warrobots.RobotWars;
+import warrobots.*;
+import robotwars.*;
 
 //A listener class for performing pause and resume
 public class PauseResumeListener implements ActionListener

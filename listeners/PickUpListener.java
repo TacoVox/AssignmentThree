@@ -23,9 +23,9 @@ public class PickUpListener implements ActionListener
     {
 	//If the robot can pick up a thing
 	if(hr.canPickThing())
-	{
-	    //Pick the thing up
-	    hr.pickThing();
-	}
+	    {
+		//Pick the thing up
+		hr.pickThing();
+	    }
     }
 }
