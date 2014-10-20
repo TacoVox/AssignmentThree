@@ -8,7 +8,7 @@ import becker.robots.*;
 import static dit948.Random.*;
 
 //A class which creates objects which are "robot that move randomly around the map"
-class RandomRobot extends WarRobot
+public class RandomRobot extends WarRobot
 {
     //Constructor
     public RandomRobot(City city, int street, int avenue, Direction dir)
