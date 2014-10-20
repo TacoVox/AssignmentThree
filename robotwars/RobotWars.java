@@ -118,35 +118,35 @@ public class RobotWars
 		menuBar = new JMenuBar();		// a menu bar
 		
 		JMenu actions = new JMenu("Actions");		// actions menu
-		actions.setMnemonicKey(KeyEvent.VK_A);		// set action key for keyboard (ALT + A)
+//		actions.setMnemonicKey(KeyEvent.VK_A);		// set action key for keyboard (ALT + A)
 		
 		JMenuItem pause = new JMenuItem("Pause");		// menu item pause
 		pause.addActionListener(new PauseListener(this));		// add action listener to pause
-		pause.setMnemonic(KeyEvent.VK_P);		// set action key for keyboard (ALT + P)
+//		pause.setMnemonic(KeyEvent.VK_P);		// set action key for keyboard (ALT + P)
 		actions.add(pause);			// add pause to actions menu
 		
 		JMenuItem resume = new JMenuItem("Resume");		// menu item resume
 		resume.addActionListener(new ResumeListener(this));		// add listener
-		resume.setMnemonic(KeyEvent.VK_R);		// set (ALT + R)
+//		resume.setMnemonic(KeyEvent.VK_R);		// set (ALT + R)
 		actions.add(resume);		// add to actions menu
 		
 		menuBar.add(actions);		// add actions menu to menu bar
 		
 		JMenu settings = new JMenu("Settings");		// settings menu
-		settings.setMnemonic(KeyEvent.VK_S);		// set (ALT + S)
+//		settings.setMnemonic(KeyEvent.VK_S);		// set (ALT + S)
 		
 		JRadioButton easy = new JRadioButton("Easy");		// radio button for level easy
 		easy.addActionListener(new SetSpeedListener(this, 0.5));		// add action listener
-		easy.setMnemonic(KeyEvent.VK_E);		// set (ALT + E)
+//		easy.setMnemonic(KeyEvent.VK_E);		// set (ALT + E)
 		
 		JRadioButton normal = new JRadioButton("Normal");		// radio button for normal level
 		normal.addActionListener(new SetSpeedListener(this, 1.0));		// add listener
-		normal.setMnemonic(KeyEvent.VK_N);		// set (ALT + N)
+//		normal.setMnemonic(KeyEvent.VK_N);		// set (ALT + N)
 		normal.setSelected(true);			// normal is the selected button by default
 		
 		JRadioButton hard = new JRadioButton("Hard");		// radio button for hard level
 		hard.addActionListener(new SetSpeedListener(this, 2.0));	// add listener
-		hard.setMnemonic(KeyEvent.VK_H);		// set (ALT + H)
+//		hard.setMnemonic(KeyEvent.VK_H);		// set (ALT + H)
 		
 		ButtonGroup group = new ButtonGroup();		// button group for radio buttons
 		group.add(easy);		// add radio
