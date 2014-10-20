@@ -24,6 +24,7 @@ public class RobotWars
 	
 	private int size = 11;			// size of city (number of streets and avenues)
 	private double currentSpeed = 1.0;	// starting speed of random robot
+	private boolean paused = false;		// boolean for pause/resume methods
 	
 	/**
 	 *  A constructor-creates a new frame with a menu bar,
@@ -117,10 +118,11 @@ public class RobotWars
 		JMenu actions = new JMenu("Actions");		// actions menu
 		
 		JMenuItem pause = new JMenuItem("Pause");		// menu item pause
-		pause.addActionListener(new PauseResumeListener(this));		// add action listener to pause
+		pause.addActionListener(new PauseListener(this));		// add action listener to pause
 		actions.add(pause);			// add pause to actions menu
+		
 		JMenuItem resume = new JMenuItem("Resume");		// menu item resume
-		resume.addActionListener(new PauseResumeListener(this));		// add listener
+		resume.addActionListener(new ResumeListener(this));		// add listener
 		actions.add(resume);		// add to actions menu
 		
 		menuBar.add(actions);		// add actions menu to menu bar
@@ -129,9 +131,11 @@ public class RobotWars
 		
 		JRadioButton easy = new JRadioButton("Easy");		// radio button for level easy
 		easy.addActionListener(new SetSpeedListener(this, 0.5));		// add action listener
+		
 		JRadioButton normal = new JRadioButton("Normal");		// radio button for normal level
 		normal.addActionListener(new SetSpeedListener(this, 1.0));		// add listener
 		normal.setSelected(true);			// normal is the selected button by default
+		
 		JRadioButton hard = new JRadioButton("Hard");		// radio button for hard level
 		hard.addActionListener(new SetSpeedListener(this, 2.0));	// add listener
 		
@@ -216,11 +220,28 @@ public class RobotWars
 	
 	
 	/**
-	 *  A method for pausing and resuming the game.
+	 *  A method to pause the game.
 	 */
-	public void pauseResume()
+	public void pause()
 	{
+		if ( paused == false )
+		{
 		prButton.doClick();
+		paused = true;
+		}
+	}
+	
+	
+	/**
+	 *  A method to resume the game.
+	 */
+	public void resume()
+	{
+		if ( paused == true )
+		{
+			prButton.doClick();
+			paused = false;
+		}
 	}
 	
 	
