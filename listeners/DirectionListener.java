@@ -18,7 +18,7 @@ public class DirectionListener implements ActionListener
     Direction dir;
 
     //Constructor --> gets a object with the type of the main class
-    public DirectionListener(RobotWars hr, Direction dir)
+    public DirectionListener(HumanRobot hr, Direction dir)
     {
 	//Assign the rw to the private Attribute of our class
 	this.hr = hr;
@@ -30,6 +30,6 @@ public class DirectionListener implements ActionListener
     public void actionPerformed(ActionEvent e)
     {
 	//Call the changeDirection function of the HumandRobot that changes his direction 
-	hr.changeDirection(dir);
+	hr.setDirection(dir);
     }
 }
