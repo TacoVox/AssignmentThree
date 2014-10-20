@@ -78,6 +78,7 @@ public class RobotWars
 		
 		button = new JButton("DOWN");		// button to move down
 		button.setPreferredSize(new Dimension(100, 30));
+		button.addActionListener(new DirectionListener(this));
 		c.gridx = 1;
 		c.gridy = 2;
 		controlPanel.add(button, c);
