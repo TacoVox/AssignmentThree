@@ -38,7 +38,7 @@ public class RandomRobot extends WarRobot
 
 		//A switch depending on the turns
 		switch(turns)
-		    {
+		{
 		    
 		    //In case turns is a 0
 		    case 0:
@@ -64,7 +64,7 @@ public class RandomRobot extends WarRobot
 			//Print an error string on the error output stream and break
 			System.err.println("A terrible error has happened - please contact the godlike developer team!");
 			break;
-		    }//End Switch
+	        }//End Switch
 
 		//If the front of the robot isn't clear (a wall is there)
 		while(!frontIsClear())
