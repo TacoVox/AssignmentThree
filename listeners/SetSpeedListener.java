@@ -5,7 +5,7 @@ package listeners;
 import java.awt.event.*;
 
 //A listener class for performing pause and resume
-class SetSpeedListener implements ActionListener
+public class SetSpeedListener implements ActionListener
 {
     //Private attribute speed -> this saves the speed which will be overgiven to the robot
     private double speed;

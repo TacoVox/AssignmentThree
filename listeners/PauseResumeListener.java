@@ -6,7 +6,7 @@ import java.awt.event.*;
 import warrobots.RobotWars;
 
 //A listener class for performing pause and resume
-class PauseResumeListener implements ActionListener
+public class PauseResumeListener implements ActionListener
 {
     //Private Attribute rw
     private RobotWars rw;
