@@ -30,7 +30,7 @@ public class HumanRobot extends WarRobot
 	{
 		while(true)
 		{
-			if(currentDir != dir)
+			if(currentDir != getDirection())
 			{
 				if(currentDir == Direction.NORTH)
 					goNorth();
@@ -54,10 +54,18 @@ public class HumanRobot extends WarRobot
 	
 	private void goNorth()
 	{
-		if(isFacingNorth() == true)		
+		//if(isFacingNorth() == true)		
+	}
+	private void goEast()
+	{
+		
 	}
 	private void goSouth()
 	{
 		turnLeft(2);
+	}
+	private void goWest()
+	{
+		
 	}
 }
