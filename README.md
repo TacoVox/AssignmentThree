@@ -1,4 +1,4 @@
-//AssignmentTwo
+//AssignmentThree
 //Programming course DIT948
 
 Kahler, Jonas
