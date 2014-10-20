@@ -78,6 +78,7 @@ public class RobotWars
 		
 		button = new JButton("DOWN");		// button to move down
 		button.setPreferredSize(new Dimension(100, 30));
+		button.addActionListener(new DirectionListener(this));
 		c.gridx = 1;
 		c.gridy = 2;
 		controlPanel.add(button, c);
@@ -203,12 +204,16 @@ public class RobotWars
 		createWalls();		// create walls
 		
 		RandomRobot karel = new RandomRobot(gameCity, 2, 2, Direction.EAST);
-		karel.setRandIcon();
 		
 		karel.setSpeed(speed);
 		
+		HumanRobot mark = new HumanRobot(gameCity, 8, 8, Direction.North);
+			
 		Thread karelThread = new Thread(karel);
 		karelThread.start();
+		
+		Thread markThread = new Thread(mark);
+		markThread.start();
 		
 	}
 	
