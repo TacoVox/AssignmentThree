@@ -209,7 +209,7 @@ public class RobotWars
 		
 		karel.setSpeed(speed);
 		
-		mark = new HumanRobot(gameCity, 8, 8, Direction.North);
+		mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH);
 			
 		Thread karelThread = new Thread(karel);
 		karelThread.start();
