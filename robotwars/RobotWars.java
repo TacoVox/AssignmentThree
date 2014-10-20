@@ -28,6 +28,8 @@ public class RobotWars
 	private double currentSpeed = 1.0;	// starting speed of random robot
 	private boolean paused = false;		// boolean for pause/resume methods
 	
+	HumanRobot mark;
+	
 	/**
 	 *  A constructor-creates a new frame with a menu bar,
 	 *  controls and a city view.
@@ -78,7 +80,7 @@ public class RobotWars
 		
 		button = new JButton("DOWN");		// button to move down
 		button.setPreferredSize(new Dimension(100, 30));
-		button.addActionListener(new DirectionListener(this));
+		button.addActionListener(new DirectionListener(mark, Direction.SOUTH));
 		c.gridx = 1;
 		c.gridy = 2;
 		controlPanel.add(button, c);
@@ -207,7 +209,7 @@ public class RobotWars
 		
 		karel.setSpeed(speed);
 		
-		HumanRobot mark = new HumanRobot(gameCity, 8, 8, Direction.North);
+		mark = new HumanRobot(gameCity, 8, 8, Direction.North);
 			
 		Thread karelThread = new Thread(karel);
 		karelThread.start();
