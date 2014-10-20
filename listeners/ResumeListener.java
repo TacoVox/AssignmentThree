@@ -21,6 +21,6 @@ public class ResumeListener implements ActionListener
     public void actionPerformed(ActionEvent e)
     {
 	//Call the pause and resume function of the rw obj.
-	rw.pauseResume();
+	rw.resume();
     }
 }
