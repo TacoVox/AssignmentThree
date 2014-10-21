@@ -23,10 +23,10 @@ public class HumanRobot extends WarRobot
 	public void run()
 	{
 		//The robot will move at one direction all the time
-		move();
+		go();
 	}
 	//A move method to make the robot change direction
-	public void move()
+	private void go()
 	{
 		while(true)
 		{
