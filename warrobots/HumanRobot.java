@@ -83,9 +83,9 @@ public class HumanRobot extends WarRobot
 		//if statement for the direction of the robot
 		if(isFacingSouth()) //If facing south, continue
 			System.err.println("already facing south"); //An error message if robot facing south
-		else if(isFacingWest) //If facing west
+		else if(isFacingWest()) //If facing west
 			turnLeft(); //Turn one time left
-		else if(isFacingNorth) //If facing north
+		else if(isFacingNorth()) //If facing north
 			turnAround(); //Turn around (two left turns)
 		else 
 			turnRight(); //If facing east turn right (90° left)
