@@ -56,6 +56,7 @@ public class HumanRobot extends WarRobot
 	//
 	private void goNorth() //Go north method to tell the robot how to turn
 	{
+		//if statement for the direction of the robot
 		if(isFacingNorth())	//If facing north, continue
 			System.err.println("already facing north"); //An error message if robot facing north
 		else if(isFacingEast()) //If the robot is facing east
@@ -67,6 +68,7 @@ public class HumanRobot extends WarRobot
 	}
 	private void goEast() //Go east method to tell the robot how to turn
 	{
+		//if statement for the direction of the robot
 		if(isFacingEast()) //If facing east, continue
 			System.err.println("already facing east"); //An error message if robot facing east
 		else if(isFacingSouth()) //If facing south
@@ -78,6 +80,7 @@ public class HumanRobot extends WarRobot
 	}
 	private void goSouth() //Go south method to tell the robot how to turn
 	{
+		//if statement for the direction of the robot
 		if(isFacingSouth()) //If facing south, continue
 			System.err.println("already facing south"); //An error message if robot facing south
 		else if(isFacingWest) //If facing west
@@ -89,6 +92,7 @@ public class HumanRobot extends WarRobot
 	}
 	private void goWest() //Go west method to tell the robot how to turn
 	{
+		//if statement for the direction of the robot
 		if(isFacingWest()) //If facing west, continue
 			System.err.println("already facing west"); //An error message if robot facing west
 		else if(isFacingNorth()) //If facing north
