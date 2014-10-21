@@ -17,9 +17,9 @@ public class RRIcon extends Icon
 	g.drawImage(getRandImage(), 0, 0, this);
     }
     
-    public Image getRandImage()
+    public BufferedImage getRandImage()
     {
-	Image img = Toolkit.getDefaultToolkit().createImage("./red.ico");
+	BufferedImage img = ImageIO.read(new File(red.ico));
 	
 	return img;
     }

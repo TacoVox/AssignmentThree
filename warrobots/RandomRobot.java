@@ -13,7 +13,7 @@ import java.awt.*;
 //Import Cezar's random library
 import static dit948.Random.*;
 
-//import icons.RRIcon;
+import icons.RRIcon;
 
 //A class which creates objects which are "a robot which moves randomly around the map"
 public class RandomRobot extends WarRobot
@@ -35,7 +35,7 @@ public class RandomRobot extends WarRobot
     //This method sets an icon which is selected randomly out of a set of icons
     public void setRandIcon()
     {
-	//setIcon(new RRIcon());	
+	setIcon(new RRIcon(50));	
     }
 
     //Method which starts a random move around the city
