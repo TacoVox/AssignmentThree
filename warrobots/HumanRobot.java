@@ -28,19 +28,20 @@ public class HumanRobot extends WarRobot
 	//A move method to make the robot change direction
 	private void go()
 	{
+		//Infinite while-loop to check for the Direction of the robot
 		while(true)
 		{
-			if(currentDir != getDirection())
+			if(currentDir != getDirection()) // if currentdir is not
 			{
 				if(currentDir == Direction.NORTH)
 					goNorth();
-					else if(currentDir == Direction.EAST)
+				else if(currentDir == Direction.EAST)
 						goEast();
-					else if(currentDir == Direction.SOUTH)
+				else if(currentDir == Direction.SOUTH)
 						goSouth();
 						
-					else 
-						goWest();
+				else 
+					goWest();
 			}
 			else 
 				move();
@@ -54,18 +55,46 @@ public class HumanRobot extends WarRobot
 	
 	private void goNorth()
 	{
-		//if(isFacingNorth() == true)		
+		if(isFacingNorth())	
+			System.err.println("already facing north");
+		else if(isFacingEast())
+			turnLeft();
+		else if(isFacingSouth())
+			turnAround();
+		else 
+			turnRight();
 	}
 	private void goEast()
 	{
-		
+		if(isFacingEast())
+			System.err.println("already facing east");
+		else if(isFacingSouth())
+			turnLeft();
+		else if(isFacingWest())
+			turnAround();
+		else
+			turnRight();
 	}
 	private void goSouth()
 	{
-		turnLeft(2);
+		if(isFacingSouth())
+			System.err.println("already facing south");
+		else if(isFacingWest)
+			turnLeft();
+		else if(isFacingNorth)
+			turnAround();
+		else 
+			turnRight();
 	}
 	private void goWest()
 	{
-		
+		if(isFacingWest())
+			System.err.println("already facing west");
+		else if(isFacingNorth())
+			turnLeft();
+		else if(isFacingEast())
+			turnAround();
+		else
+			turnRight();
 	}
 }
