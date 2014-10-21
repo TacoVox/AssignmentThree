@@ -5,6 +5,7 @@ import becker.robots.icons.Icon;
 import java.awt.Graphics;
 import java.awt.image.*;
 import java.io.File;
+import javax.imageio.ImageIO;
 
 public class RRIcon extends Icon
 {
