@@ -3,23 +3,24 @@ package icons;
 import becker.robots.icons.Icon;
 
 import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.image.*;
+import java.io.File;
 
 public class RRIcon extends Icon
 {
-    public RRIcon(double relativeSize)
+    public RRIcon()
     {
-	super(relativeSize);
+	super();
     }
 
     protected void paintIcon(Graphics g)
     { 
-	g.drawImage(getRandImage(), 0, 0, this);
+	g.drawImage(getRandImage(), 0, 0, null);
     }
     
-    public Image getRandImage()
+    public BufferedImage getRandImage()
     {
-	Image img = Toolkit.getDefaultToolkit().createImage("./red.ico");
+	BufferedImage img = ImageIO.read(new File("red.gif"));
 	
 	return img;
     }

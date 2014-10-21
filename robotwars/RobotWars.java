@@ -13,6 +13,8 @@ import listeners.*;
 
 import java.awt.event.*;
 
+import icons.*;
+
 
 
 public class RobotWars  
@@ -208,6 +210,7 @@ public class RobotWars
 		RandomRobot karel = new RandomRobot(gameCity, 2, 2, Direction.EAST);
 		
 		karel.setSpeed(speed);
+		karel.setIcon(new RRIcon());
 		
 		mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH);
 			
