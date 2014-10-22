@@ -224,7 +224,7 @@ public class RobotWars implements ActionListener
 		karel.setSpeed(speed);
 		karel.setIcon(new RRIcon());
 		
-		mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH);
+		mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH, this);
 		mark.setIcon(new HRIcon());
 			
 		Thread karelThread = new Thread(karel);
