@@ -14,39 +14,39 @@ import javax.swing.JOptionPane;
 //Creating the class HumanRobot that shall be controlled by the user with the GUI
 public class HumanRobot extends WarRobot
 {
-	private Direction currentDir;
+	private Direction currentDir; 
 	private RobotWars rw;
 	
 	//Constructer
 	public HumanRobot(City city, int street, int avenue, Direction dir, RobotWars rw)
 	{
-		//call the super constructer
+		//Call the super constructer
 		super(city, street, avenue, dir);
-		
+		//Assign currentDir to dir
 		currentDir = dir;
-		
+		//Assign this.rw = rw
 		this.rw = rw;
 	}
 	
-	
+	//Creating an ActionEvent 
 	public void getButton(ActionEvent e){
 		
-		if(e.getActionCommand()=="down")
+		if(e.getActionCommand()=="down") //If you press down button
 		{
-			currentDir = Direction.SOUTH;
-		} else if (e.getActionCommand()=="up")
+			currentDir = Direction.SOUTH; //The direction of the robot is south
+		} else if (e.getActionCommand()=="up") //If you press up button
 		{
-			currentDir = Direction.NORTH;
-		} else if (e.getActionCommand()=="left")
+			currentDir = Direction.NORTH; //The direction of the robot is north
+		} else if (e.getActionCommand()=="left") //If you press left button
 		{
-			currentDir = Direction.WEST;
-		} else if (e.getActionCommand()=="right")
+			currentDir = Direction.WEST; //The direction of the robot is west
+		} else if (e.getActionCommand()=="right") //If you press right button
 		{
-			currentDir = Direction.EAST;
+			currentDir = Direction.EAST; //The direction of the robot is east
 		}
-		else if (e.getActionCommand()=="pick")
+		else if (e.getActionCommand()=="pick") //If you press pick button
 		{
-			pickThing();
+			pickThing();                 //robot pick up thing
 		}
 	}
 	
@@ -62,20 +62,20 @@ public class HumanRobot extends WarRobot
 		//Infinite while-loop to check for the Direction of the robot
 		while(true)
 		{
-			if(currentDir != getDirection()) // if currentdir is not
-			{
-				if(currentDir == Direction.NORTH)
-					goNorth();
-				else if(currentDir == Direction.EAST)
-						goEast();
-				else if(currentDir == Direction.SOUTH)
-						goSouth();
+			if(currentDir != getDirection()) // If currentDir is not the same direction of 
+			{								 //the getDirection, then go through the other if statements
+				if(currentDir == Direction.NORTH) //If cerrentDir is the same as Direction.NORTH
+					goNorth();					  //Then go north
+				else if(currentDir == Direction.EAST) //If cerrentDir is the same as Direction.EAST
+						goEast();				  //Then go east
+				else if(currentDir == Direction.SOUTH) //If cerrentDir is the same as Direction.SOUTH
+						goSouth();				  //Then go south
 						
-				else 
-					goWest();
+				else 							
+					goWest();					//Else go west
 			}
 			else 
-				move();
+				move();							//Otherwise the robot shall move in the current direction
 		}
 	}
 	//A setDirection method to set the direction of the robot
@@ -133,18 +133,19 @@ public class HumanRobot extends WarRobot
 		else
 			turnRight(); //If facing south turn right
 	}
-	
+	//Creating a pickThing method
 	public void pickThing()
 	{
-		if(canPickThing())
+		if(canPickThing()) //If the robot is on the intersetcion of a thing it can pickThing
 		{
-			pickThing();
-			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restartgame?", "Game Over", JOptionPane.YES_NO_OPTION);
-					if(choice == JOptionPane.YES_OPTION)
-						rw.restart();
+			pickThing(); //Robot pickThing
+			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restartgame?",  //creating a int choice for the JOptionPane and give it a text
+														"Game Over", JOptionPane.YES_NO_OPTION); // and a YES_NO_OPTION 
+					if(choice == JOptionPane.YES_OPTION) //If press YES button
+						rw.restart();					 //then restart
 					else
-						System.out.println("Do it later");
-						//rw.quit();
+						System.out.println("Do it later"); 
+						//rw.quit(); //If NO button pressed it quits
 		}
 	}
 	
