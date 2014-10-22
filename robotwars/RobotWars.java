@@ -233,6 +233,7 @@ public class RobotWars implements ActionListener
 		Thread markThread = new Thread(mark);
 		markThread.start();
 		
+		placeThing();
 	}
 	
 	

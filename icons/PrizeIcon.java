@@ -16,14 +16,16 @@ public class PrizeIcon extends Icon
 	BufferedImage img;
 	
 	public PrizeIcon()
-	{
+	{      
 		super();
+		System.out.println("TEST");
 		try 
 		{
 			img = ImageIO.read(new File("./icons/data/prize.gif"));
-	    	} 
+	    	}
 		catch (IOException e) 
 	    	{
+			System.err.println("Error while loading the picture!");
 	    	}
 		setSize(0.4);
 	}
