@@ -28,8 +28,6 @@ public class HRIcon extends Icon
     {
 	BufferedImage img = null;
 	
-	int rand = randomInt(3);
-	
 	try
         {
 	    img = ImageIO.read(new File("./icons/data/pacman.gif"));
