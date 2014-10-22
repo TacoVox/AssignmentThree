@@ -5,8 +5,13 @@ package warrobots;
 //Importing becker.jar
 import becker.robots.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
+
 //Creating the class HumanRobot that shall be controlled by the user with the GUI
-public class HumanRobot extends WarRobot
+public class HumanRobot extends WarRobot implements ActionListener
 {
 	private Direction currentDir;
 	
@@ -120,4 +125,18 @@ public class HumanRobot extends WarRobot
 		else
 			turnRight(); //If facing south turn right (90° left)
 	}
+	
+	public void pickThing()
+	{
+		if(canPickThing())
+		{
+			pickThing();
+			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restartgame?"  JOptionPane.YES_NO_OPTION);
+					if(choice == JOptionPane.YESOption)
+						g.restart();
+					else
+						g.quit();
+		}
+	}
+	
 }
