@@ -20,11 +20,11 @@ public class PrizeIcon extends Icon
 		super();
 		try 
 		{
-			img = ImageIO.read(new File("prize.jpeg"));
-	    } 
+			img = ImageIO.read(new File("./icons/data/prize.gif"));
+	    	} 
 		catch (IOException e) 
-	    {
-	    }
+	    	{
+	    	}
 		setSize(0.4);
 	}
 	
@@ -36,5 +36,4 @@ public class PrizeIcon extends Icon
 		g.drawImage(img, 0, 0, null);
 	}
 	
-
 }
