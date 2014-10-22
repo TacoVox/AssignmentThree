@@ -95,6 +95,8 @@ public class RobotWars implements ActionListener
 		
 		buttonPick = new JButton("PICK");		// button to pick things
 		buttonPick.setPreferredSize(new Dimension(100, 30));
+		buttonPick.addActionListener(this);
+		buttonPick.setActionCommand("pick");
 		c.gridx = 1;
 		c.gridy = 1;
 		controlPanel.add(buttonPick, c);
