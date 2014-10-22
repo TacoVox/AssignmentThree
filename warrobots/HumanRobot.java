@@ -4,6 +4,7 @@ package warrobots;
 // comment
 //Importing becker.jar
 import becker.robots.*;
+import robotwars.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 //Creating the class HumanRobot that shall be controlled by the user with the GUI
-public class HumanRobot extends WarRobot implements ActionListener
+public class HumanRobot extends WarRobot
 {
 	private Direction currentDir;
 	private RobotWars rw;
@@ -138,8 +139,8 @@ public class HumanRobot extends WarRobot implements ActionListener
 		if(canPickThing())
 		{
 			pickThing();
-			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restartgame?",  JOptionPane.YES_NO_OPTION);
-					if(choice == JOptionPane.YESOption)
+			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restartgame?", "Game Over", JOptionPane.YES_NO_OPTION);
+					if(choice == JOptionPane.YES_OPTION)
 						rw.restart();
 					else
 						System.out.println("Do it later");
