@@ -1,3 +1,4 @@
+
 package icons;
 
 import becker.robots.icons.Icon;
@@ -12,14 +13,17 @@ import static dit948.Random.*;
 
 public class RRIcon extends Icon
 {
+    private BufferedImage img;
+    
     public RRIcon()
     {
 	super();
+	img = getRandImage();
     }
 
     protected void paintIcon(Graphics g)
     { 
-	g.drawImage(getRandImage(), 0, 0, null);
+	g.drawImage(img, 0, 0, null);
     }
     
     public BufferedImage getRandImage()
