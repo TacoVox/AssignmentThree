@@ -213,6 +213,7 @@ public class RobotWars
 		karel.setIcon(new RRIcon());
 		
 		mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH);
+		mark.setIcon(new HRIcon());
 			
 		Thread karelThread = new Thread(karel);
 		karelThread.start();
@@ -281,6 +282,24 @@ public class RobotWars
 	public void setSpeed(double speed)
 	{
 		currentSpeed = speed;
+	}
+	
+	
+	
+	/**
+	 *  A method to put a thing in the city.
+	 */
+	public void placeThing()
+	{
+		Thing thing = new Thing(gameCity, 5, 5);
+		thing.setIcon(new PrizeIcon());		
+	}
+
+	
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		mark.getButton(e);  
 	}
 	
 	
