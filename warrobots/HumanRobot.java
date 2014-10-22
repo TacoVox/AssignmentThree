@@ -95,7 +95,7 @@ public class HumanRobot extends WarRobot
 		else if(isFacingSouth()) //If facing south
 			turnAround(); //Turn around (two left turns)
 		else 
-			turnRight(); // If facing west turn right (90° left)
+			turnRight(); // If facing west turn right
 	}
 	private void goEast() //Go east method to tell the robot how to turn
 	{
@@ -107,7 +107,7 @@ public class HumanRobot extends WarRobot
 		else if(isFacingWest()) //If facing west
 			turnAround(); //Turn around (two left turns)
 		else
-			turnRight(); //If facing north turn right (90° left)
+			turnRight(); //If facing north turn right
 	}
 	private void goSouth() //Go south method to tell the robot how to turn
 	{
@@ -119,7 +119,7 @@ public class HumanRobot extends WarRobot
 		else if(isFacingNorth()) //If facing north
 			turnAround(); //Turn around (two left turns)
 		else 
-			turnRight(); //If facing east turn right (90° left)
+			turnRight(); //If facing east turn right 
 	}
 	private void goWest() //Go west method to tell the robot how to turn
 	{
@@ -131,7 +131,7 @@ public class HumanRobot extends WarRobot
 		else if(isFacingEast()) //If facing east
 			turnAround(); //Turn around (two left turns)
 		else
-			turnRight(); //If facing south turn right (90° left)
+			turnRight(); //If facing south turn right
 	}
 	
 	public void pickThing()
