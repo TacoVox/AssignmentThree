@@ -40,6 +40,10 @@ public class HumanRobot extends WarRobot implements ActionListener
 		{
 			currentDir = Direction.EAST;
 		}
+		else if (e.getActionCommand()=="pick")
+		{
+			pickThing();
+		}
 	}
 	
 	//The robot will run when the thread starts
