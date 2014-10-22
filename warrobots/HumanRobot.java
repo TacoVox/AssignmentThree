@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 //Creating the class HumanRobot that shall be controlled by the user with the GUI
-public class HumanRobot extends WarRobot implements ActionListener
+public class HumanRobot extends WarRobot
 {
 	private Direction currentDir;
 	private RobotWars rw;
@@ -140,7 +140,7 @@ public class HumanRobot extends WarRobot implements ActionListener
 		{
 			pickThing();
 			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restartgame?", "Game Over", JOptionPane.YES_NO_OPTION);
-					if(choice == JOptionPane.YESOption)
+					if(choice == JOptionPane.YES_OPTION)
 						rw.restart();
 					else
 						System.out.println("Do it later");
