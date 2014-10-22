@@ -84,5 +84,19 @@ public class RandomRobot extends WarRobot
 	    }//End while
 
     }//End randMove
+    
+    
+    /**
+     *  ???
+     */
+    public void breakRobot(String msg)
+    {
+  	  try 
+  	  {
+  	  super.breakRobot(msg);
+  	  } catch (Exception e)
+  	  {
+  	  }
+    }
 
 }//EndClass
