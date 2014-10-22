@@ -31,8 +31,10 @@ public class RobotWars implements ActionListener
 	private double currentSpeed = 1.0;	// starting speed of random robot
 	private boolean paused = false;		// boolean for pause/resume methods
 	
-	HumanRobot mark;
-	Thread markThread;
+	private JButton buttonUp, buttonDown, buttonLeft, buttonRight, buttonPick;
+	
+	private HumanRobot mark;
+	private Thread markThread;
 	
 	/**
 	 *  A constructor-creates a new frame with a menu bar,
@@ -70,49 +72,48 @@ public class RobotWars implements ActionListener
 	 */
 	private void createControlPanel()
 	{
-		JButton button;		// declare variable for buttons
 		
 		controlPanel = new JPanel(null);	// create a panel for controls
 		controlPanel.setLayout(new GridBagLayout());	// set layout manager
 		GridBagConstraints c = new GridBagConstraints();	// variable for constraints on the position of buttons
 		
-		button = new JButton("UP");		// button to move up
-		button.setPreferredSize(new Dimension(100, 30));	// set size of button
+		buttonUp = new JButton("UP");		// button to move up
+		buttonUp.setPreferredSize(new Dimension(100, 30));	// set size of button
 		buttonUp.addActionListener(this);
 		buttonUp.setActionCommand("up");
 		c.gridx = 1;		// position of button on x-axis
 		c.gridy = 0;		// position of button on y-axis
-		controlPanel.add(button, c);	// add button to control panel
+		controlPanel.add(buttonUp, c);	// add button to control panel
 		
-		button = new JButton("DOWN");		// button to move down
-		button.setPreferredSize(new Dimension(100, 30));
+		buttonDown = new JButton("DOWN");		// button to move down
+		buttonDown.setPreferredSize(new Dimension(100, 30));
 		buttonDown.addActionListener(this);
 		buttonDown.setActionCommand("down");
 		c.gridx = 1;
 		c.gridy = 2;
-		controlPanel.add(button, c);
+		controlPanel.add(buttonDown, c);
 		
-		button = new JButton("PICK");		// button to pick things
+		buttonPick = new JButton("PICK");		// button to pick things
 		button.setPreferredSize(new Dimension(100, 30));
 		c.gridx = 1;
 		c.gridy = 1;
-		controlPanel.add(button, c);
+		controlPanel.add(buttonPick, c);
 		
-		button = new JButton("LEFT");		// button to move left
-		button.setPreferredSize(new Dimension(100, 30));
+		buttonLeft = new JButton("LEFT");		// button to move left
+		buttonLeft.setPreferredSize(new Dimension(100, 30));
 		buttonLeft.addActionListener(this);
 		buttonLeft.setActionCommand("left");
 		c.gridx = 0;
 		c.gridy = 1;
-		controlPanel.add(button, c);
+		controlPanel.add(buttonLeft, c);
 		
-		button = new JButton("RIGHT");		// button to move right
-		button.setPreferredSize(new Dimension(100, 30));
+		buttonRight = new JButton("RIGHT");		// button to move right
+		buttonRight.setPreferredSize(new Dimension(100, 30));
 		buttonRight.addActionListener(this);
 		buttonRight.setActionCommand("right");
 		c.gridx = 2;
 		c.gridy = 1;
-		controlPanel.add(button, c);
+		controlPanel.add(buttonRight, c);
 		
 		gamePanel.add(controlPanel, BorderLayout.SOUTH);		// add control panel to main panel at the bottom
 		
