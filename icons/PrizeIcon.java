@@ -18,7 +18,7 @@ public class PrizeIcon extends Icon
 	public PrizeIcon()
 	{      
 		super();
-		System.out.println("TEST");
+
 		try 
 		{
 			img = ImageIO.read(new File("./icons/data/prize.gif"));
