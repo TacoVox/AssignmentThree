@@ -11,13 +11,14 @@ import java.awt.*;
 import warrobots.*;
 import listeners.*;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import icons.*;
 
 
 
-public class RobotWars  
+public class RobotWars implements ActionListener
 {
 	private JFrame gameFrame;		// main frame for the game
 	private JPanel gamePanel;		// main panel to hold buttons and city view
@@ -31,6 +32,7 @@ public class RobotWars
 	private boolean paused = false;		// boolean for pause/resume methods
 	
 	HumanRobot mark;
+	Thread markThread;
 	
 	/**
 	 *  A constructor-creates a new frame with a menu bar,
@@ -76,13 +78,16 @@ public class RobotWars
 		
 		button = new JButton("UP");		// button to move up
 		button.setPreferredSize(new Dimension(100, 30));	// set size of button
+		buttonUp.addActionListener(this);
+		buttonUp.setActionCommand("up");
 		c.gridx = 1;		// position of button on x-axis
 		c.gridy = 0;		// position of button on y-axis
 		controlPanel.add(button, c);	// add button to control panel
 		
 		button = new JButton("DOWN");		// button to move down
 		button.setPreferredSize(new Dimension(100, 30));
-		button.addActionListener(new DirectionListener(mark, Direction.SOUTH));
+		buttonDown.addActionListener(this);
+		buttonDown.setActionCommand("down");
 		c.gridx = 1;
 		c.gridy = 2;
 		controlPanel.add(button, c);
@@ -95,12 +100,16 @@ public class RobotWars
 		
 		button = new JButton("LEFT");		// button to move left
 		button.setPreferredSize(new Dimension(100, 30));
+		buttonLeft.addActionListener(this);
+		buttonLeft.setActionCommand("left");
 		c.gridx = 0;
 		c.gridy = 1;
 		controlPanel.add(button, c);
 		
 		button = new JButton("RIGHT");		// button to move right
 		button.setPreferredSize(new Dimension(100, 30));
+		buttonRight.addActionListener(this);
+		buttonRight.setActionCommand("right");
 		c.gridx = 2;
 		c.gridy = 1;
 		controlPanel.add(button, c);
