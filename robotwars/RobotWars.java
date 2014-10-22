@@ -34,7 +34,7 @@ public class RobotWars implements ActionListener
 	private JButton buttonUp, buttonDown, buttonLeft, buttonRight, buttonPick;
 	
 	private HumanRobot mark;
-	private Thread markThread;
+	
 	
 	/**
 	 *  A constructor-creates a new frame with a menu bar,
@@ -219,12 +219,14 @@ public class RobotWars implements ActionListener
 		
 		createWalls();		// create walls
 		
+		placeThing();
+		
 		RandomRobot karel = new RandomRobot(gameCity, 2, 2, Direction.EAST);
 		
 		karel.setSpeed(speed);
 		karel.setIcon(new RRIcon());
 		
-		mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH, this);
+		mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH, this, karel);
 		mark.setIcon(new HRIcon());
 			
 		Thread karelThread = new Thread(karel);
@@ -233,7 +235,7 @@ public class RobotWars implements ActionListener
 		Thread markThread = new Thread(mark);
 		markThread.start();
 		
-		placeThing();
+		
 	}
 	
 	
@@ -250,6 +252,7 @@ public class RobotWars implements ActionListener
 		createControlPanel();
 		createMenuBar();
 		createCity(size, size, currentSpeed);
+		prButton.doClick();
 	}
 	
 	
@@ -276,6 +279,15 @@ public class RobotWars implements ActionListener
 			prButton.doClick();
 			paused = false;
 		}
+	}
+	
+	
+	/**
+	 *  A method to quit the game.
+	 */
+	public void quit()
+	{
+		System.exit(1);
 	}
 	
 	
