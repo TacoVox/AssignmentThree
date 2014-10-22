@@ -163,20 +163,22 @@ public class HumanRobot extends WarRobot
 	@Override
 	public void breakRobot(String msg)
 	{
-		try
-		{
-			super.breakRobot(msg);
-		} catch (Exception e)
-		{
-		}
+	    rw.pause();
+	    try
+	    {
+		super.breakRobot(msg);
+	    } catch (Exception e)
+	    {
+	    }
 		
-		rw.pause();
-		
-		int choice = JOptionPane.showConfirmDialog(null, "You lose! \n Restart game?", "Game Over", JOptionPane.YES_NO_OPTION);
-		if(choice == JOptionPane.YES_OPTION)
-			rw.restart();
-		else
-			rw.quit();
+	    int choice = JOptionPane.showConfirmDialog(null, "You lose! \n Restart game?", "Game Over", JOptionPane.YES_NO_OPTION);
+	    if(choice == JOptionPane.YES_OPTION)
+	    {
+		choice = 8;
+		rw.restart();
+	    }
+	    else
+		rw.quit();
 		
 	}
 }
