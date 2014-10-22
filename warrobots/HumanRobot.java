@@ -19,6 +19,24 @@ public class HumanRobot extends WarRobot
 		currentDir = dir;
 	}
 	
+	
+	public void getButton(ActionEvent e){
+		
+		if(e.getActionCommand()=="down")
+		{
+			currentDir = Direction.SOUTH;
+		} else if (e.getActionCommand()=="up")
+		{
+			currentDir = Direction.NORTH;
+		} else if (e.getActionCommand()=="left")
+		{
+			currentDir = Direction.WEST;
+		} else if (e.getActionCommand()=="right")
+		{
+			currentDir = Direction.EAST;
+		}
+	}
+	
 	//The robot will run when the thread starts
 	public void run()
 	{
