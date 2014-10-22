@@ -14,14 +14,17 @@ import javax.swing.JOptionPane;
 public class HumanRobot extends WarRobot implements ActionListener
 {
 	private Direction currentDir;
+	private RobotWars rw;
 	
 	//Constructer
-	public HumanRobot(City city, int street, int avenue, Direction dir)
+	public HumanRobot(City city, int street, int avenue, Direction dir, RobotWars rw)
 	{
 		//call the super constructer
 		super(city, street, avenue, dir);
 		
 		currentDir = dir;
+		
+		this.rw = rw;
 	}
 	
 	
@@ -135,11 +138,12 @@ public class HumanRobot extends WarRobot implements ActionListener
 		if(canPickThing())
 		{
 			pickThing();
-			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restartgame?"  JOptionPane.YES_NO_OPTION);
+			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restartgame?",  JOptionPane.YES_NO_OPTION);
 					if(choice == JOptionPane.YESOption)
-						g.restart();
+						rw.restart();
 					else
-						g.quit();
+						System.out.println("Do it later");
+						//rw.quit();
 		}
 	}
 	
