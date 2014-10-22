@@ -4,6 +4,7 @@ package warrobots;
 // comment
 //Importing becker.jar
 import becker.robots.*;
+import robotwars.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -138,7 +139,7 @@ public class HumanRobot extends WarRobot implements ActionListener
 		if(canPickThing())
 		{
 			pickThing();
-			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restartgame?",  JOptionPane.YES_NO_OPTION);
+			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restartgame?", "Game Over", JOptionPane.YES_NO_OPTION);
 					if(choice == JOptionPane.YESOption)
 						rw.restart();
 					else
