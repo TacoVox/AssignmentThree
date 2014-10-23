@@ -18,9 +18,10 @@ public class HumanRobot extends WarRobot
 	private RobotWars rw;
 	private RandomRobot rr;
 	private boolean wantToPick = false;
+	private double gameSpeed;
 	
 	//Constructer
-	public HumanRobot(City city, int street, int avenue, Direction dir, RobotWars rw, RandomRobot rr)
+	public HumanRobot(City city, int street, int avenue, Direction dir, RobotWars rw, RandomRobot rr, double speed)
 	{
 		//Call the super constructer
 		super(city, street, avenue, dir);
@@ -30,6 +31,8 @@ public class HumanRobot extends WarRobot
 		this.rw = rw;
 		
 		this.rr = rr;
+		
+		this.gameSpeed = speed;
 	}
 	
 	//Creating an ActionEvent 
@@ -153,7 +156,7 @@ public class HumanRobot extends WarRobot
 			}
 			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restart game?", "Game Over", JOptionPane.YES_NO_OPTION);
 					if(choice == JOptionPane.YES_OPTION)
-						rw.restart();
+						rw.restart(gameSpeed);
 					else
 						rw.quit();
 		}
@@ -174,8 +177,7 @@ public class HumanRobot extends WarRobot
 	    int choice = JOptionPane.showConfirmDialog(null, "You lose! \n Restart game?", "Game Over", JOptionPane.YES_NO_OPTION);
 	    if(choice == JOptionPane.YES_OPTION)
 	    {
-		choice = 8;
-		rw.restart();
+		rw.restart(gameSpeed);
 	    }
 	    else
 		rw.quit();

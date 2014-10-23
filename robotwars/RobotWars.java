@@ -28,7 +28,6 @@ public class RobotWars implements ActionListener
 	private JMenuBar menuBar;		// the menu bar
 	
 	private int size = 11;			// size of city (number of streets and avenues)
-	private double currentSpeed = 1.0;	// starting speed of random robot
 	private boolean paused = false;		// boolean for pause/resume methods
 	
 	private JButton buttonUp, buttonDown, buttonLeft, buttonRight, buttonPick;
@@ -40,7 +39,7 @@ public class RobotWars implements ActionListener
 	 *  A constructor-creates a new frame with a menu bar,
 	 *  controls and a city view.
 	 */
-	public RobotWars()
+	public RobotWars(double gameSpeed)
 	{
 		gameFrame = new JFrame("Robot Wars");	// create frame
 		gameFrame.setVisible(true);				// set visible
@@ -48,7 +47,7 @@ public class RobotWars implements ActionListener
 		createMenuBar();		// create and add menu bar
 		createMainPanel();		// create and add main panel
 		createControlPanel();	// create and add control panel
-		createCity(size, size, currentSpeed);		// create and add city
+		createCity(size, size, gameSpeed);		// create and add city
 	}
 	
 	
@@ -226,7 +225,7 @@ public class RobotWars implements ActionListener
 		karel.setSpeed(speed);
 		karel.setIcon(new RRIcon());
 		
-		mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH, this, karel);
+		mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH, this, karel, speed);
 		mark.setIcon(new HRIcon());
 			
 		Thread karelThread = new Thread(karel);
@@ -246,13 +245,17 @@ public class RobotWars implements ActionListener
 	 */
 	public void restart()
 	{
-		gameFrame.remove(gamePanel);
-		
-		createMainPanel();
-		createControlPanel();
-		createMenuBar();
-		createCity(size, size, currentSpeed);
-		prButton.doClick();
+		if (paused)
+		{
+			RobotWars game = new RobotWars(speed);
+			game.gameOn();
+		}
+		else 
+		{
+			prButton.doClick();
+			RobotWars game = new RobotWars(speed);
+			game.gameOn(); 
+		}
 	}
 	
 	
@@ -302,16 +305,6 @@ public class RobotWars implements ActionListener
 
 	
 	/**
-	 *  A method to set the speed of the random robot.
-	 */
-	public void setSpeed(double speed)
-	{
-		currentSpeed = speed;
-	}
-	
-	
-	
-	/**
 	 *  A method to put a thing in the city.
 	 */
 	public void placeThing()
@@ -331,7 +324,7 @@ public class RobotWars implements ActionListener
 	public static void main(String[] args) 
 	{
 		
-		RobotWars game = new RobotWars();
+		RobotWars game = new RobotWars(1.0);
 		game.gameOn();
 		
 	} // end main()
