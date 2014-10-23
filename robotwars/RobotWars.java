@@ -24,8 +24,6 @@ public class RobotWars implements ActionListener
 	private JPanel gamePanel;		// main panel to hold buttons and city view
 	private JButton prButton;		// pause/resume button
 	private City gameCity;			// the city
-	private JPanel controlPanel;	// panel for the control buttons
-	private JMenuBar menuBar;		// the menu bar
 	
 	private int size = 11;			// size of city (number of streets and avenues)
 	private boolean paused = false;		// boolean for pause/resume methods
@@ -72,7 +70,7 @@ public class RobotWars implements ActionListener
 	private void createControlPanel()
 	{
 		
-		controlPanel = new JPanel(null);	// create a panel for controls
+		JPanel controlPanel = new JPanel(null);	// create a panel for controls
 		controlPanel.setLayout(new GridBagLayout());	// set layout manager
 		GridBagConstraints c = new GridBagConstraints();	// variable for constraints on the position of buttons
 		
@@ -131,38 +129,31 @@ public class RobotWars implements ActionListener
 	 */
 	private void createMenuBar()
 	{
-		menuBar = new JMenuBar();		// a menu bar
+		JMenuBar menuBar = new JMenuBar();		// a menu bar
 		
 		JMenu actions = new JMenu("Actions");		// actions menu
-//		actions.setMnemonicKey(KeyEvent.VK_A);		// set action key for keyboard (ALT + A)
 		
 		JMenuItem pause = new JMenuItem("Pause");		// menu item pause
 		pause.addActionListener(new PauseListener(this));		// add action listener to pause
-//		pause.setMnemonic(KeyEvent.VK_P);		// set action key for keyboard (ALT + P)
 		actions.add(pause);			// add pause to actions menu
 		
 		JMenuItem resume = new JMenuItem("Resume");		// menu item resume
 		resume.addActionListener(new ResumeListener(this));		// add listener
-//		resume.setMnemonic(KeyEvent.VK_R);		// set (ALT + R)
 		actions.add(resume);		// add to actions menu
 		
 		menuBar.add(actions);		// add actions menu to menu bar
 		
 		JMenu settings = new JMenu("Settings");		// settings menu
-//		settings.setMnemonic(KeyEvent.VK_S);		// set (ALT + S)
 		
 		JRadioButton easy = new JRadioButton("Easy");		// radio button for level easy
 		easy.addActionListener(new SetSpeedListener(this, 0.5));		// add action listener
-//		easy.setMnemonic(KeyEvent.VK_E);		// set (ALT + E)
 		
 		JRadioButton normal = new JRadioButton("Normal");		// radio button for normal level
 		normal.addActionListener(new SetSpeedListener(this, 1.0));		// add listener
-//		normal.setMnemonic(KeyEvent.VK_N);		// set (ALT + N)
 		normal.setSelected(true);			// normal is the selected button by default
 		
 		JRadioButton hard = new JRadioButton("Hard");		// radio button for hard level
 		hard.addActionListener(new SetSpeedListener(this, 2.0));	// add listener
-//		hard.setMnemonic(KeyEvent.VK_H);		// set (ALT + H)
 		
 		ButtonGroup group = new ButtonGroup();		// button group for radio buttons
 		group.add(easy);		// add radio
