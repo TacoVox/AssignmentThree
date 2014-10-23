@@ -61,15 +61,15 @@ public class HumanRobot extends WarRobot
 				while(true)
 				{
 					
-					if (rr.getIntersection() == this.getIntersection())
-						breakRobot("AAAAAAAAAAA");
+					if (rr.getIntersection() == this.getIntersection()) // if the randrobot is on the same
+						breakRobot("AAAAAAAAAAA");						//intersection as HumanRobot, robot break
 					
-					if (wantToPick == true)
-						pickThing();
+					if (wantToPick == true) //If player has pressed pick button
+						pickThing();		//then pick up thing
 					
-					if(currentDir != getDirection()) // if currentdir is not
-					{
-						if(currentDir == Direction.NORTH)
+					if(currentDir != getDirection()) //If the robots direction is not the same as
+					{								 //the getDirection is true, then do thing below
+						if(currentDir == Direction.NORTH) //if
 							goNorth();
 						else if(currentDir == Direction.EAST)
 								goEast();
