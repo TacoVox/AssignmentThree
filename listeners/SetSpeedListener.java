@@ -25,7 +25,5 @@ public class SetSpeedListener implements ActionListener
     {
 	//Restart the game set the speed
 	rw.restart(speed);
-	//Start the move
-	rw.gameOn();
     }
 }
