@@ -23,10 +23,8 @@ public class SetSpeedListener implements ActionListener
     //Method which gets executed if the button/menu item is clicked
     public void actionPerformed(ActionEvent e)
     {
-	//Set a new speed
-	rw.setSpeed(speed);
 	//Restart the game set the speed
-	rw.restart();
+	rw.restart(speed);
 	//Start the move
 	rw.gameOn();
     }
