@@ -243,7 +243,7 @@ public class RobotWars implements ActionListener
 	 *  First the main panel is removed and then 
 	 *  new main panel, control panel and city is created.
 	 */
-	public void restart()
+	public void restart(double speed)
 	{
 		if (paused)
 		{
