@@ -45,7 +45,7 @@ public class RobotWars implements ActionListener
 		createMenuBar(speed);		// create and add menu bar
 		createMainPanel();		// create and add main panel
 		createControlPanel();	// create and add control panel
-		createCity(size, size, gameSpeed);		// create and add city
+		createCity(size, size, speed);		// create and add city
 	}
 	
 	
