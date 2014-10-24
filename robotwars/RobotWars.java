@@ -1,20 +1,19 @@
 //
 package robotwars;
 
-// import galleries
-import becker.robots.*;
-
-import javax.swing.*;
-
-import java.awt.*;
-
 import warrobots.*;
 import listeners.*;
+import icons.*;
 
+import static dit948.Random.*;
+
+// import galleries
+import becker.robots.*;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import icons.*;
 
 
 
