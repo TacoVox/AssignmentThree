@@ -127,7 +127,7 @@ public class RobotWars implements ActionListener
 	 *  Action listeners are also assigned to the different 
 	 *  components.
 	 */
-	private void createMenuBar(speed)
+	private void createMenuBar(double speed)
 	{
 		JMenuBar menuBar = new JMenuBar();		// a menu bar
 		
