@@ -1,20 +1,19 @@
 //
 package robotwars;
 
-// import galleries
-import becker.robots.*;
-
-import javax.swing.*;
-
-import java.awt.*;
-
 import warrobots.*;
 import listeners.*;
+import icons.*;
 
+import static dit948.Random.*;
+
+// import galleries
+import becker.robots.*;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import icons.*;
 
 
 
@@ -27,9 +26,10 @@ public class RobotWars implements ActionListener
 	
 	private int size = 11;			// size of city (number of streets and avenues)
 	private boolean paused = false;		// boolean for pause/resume methods
+	private int rand1 = randomInt(size);	// random integer to place the prize 
+	private int rand2 = randomInt(size);	// random integer to place the prize
 	
-	private JButton buttonUp, buttonDown, buttonLeft, buttonRight, buttonPick;
-	
+	private JButton buttonUp, buttonDown, buttonLeft, buttonRight, buttonPick;	// control buttons
 	private HumanRobot mark;
 	
 	
@@ -37,15 +37,15 @@ public class RobotWars implements ActionListener
 	 *  A constructor-creates a new frame with a menu bar,
 	 *  controls and a city view.
 	 */
-	public RobotWars(double gameSpeed)
+	public RobotWars(double speed)
 	{
 		gameFrame = new JFrame("Robot Wars");	// create frame
 		gameFrame.setVisible(true);				// set visible
 		gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	// set closing option
-		createMenuBar();		// create and add menu bar
+		createMenuBar(speed);		// create and add menu bar
 		createMainPanel();		// create and add main panel
 		createControlPanel();	// create and add control panel
-		createCity(size, size, gameSpeed);		// create and add city
+		createCity(size, size, speed);		// create and add city
 	}
 	
 	
@@ -127,7 +127,7 @@ public class RobotWars implements ActionListener
 	 *  Action listeners are also assigned to the different 
 	 *  components.
 	 */
-	private void createMenuBar()
+	private void createMenuBar(double speed)
 	{
 		JMenuBar menuBar = new JMenuBar();		// a menu bar
 		
@@ -150,7 +150,6 @@ public class RobotWars implements ActionListener
 		
 		JRadioButton normal = new JRadioButton("Normal");		// radio button for normal level
 		normal.addActionListener(new SetSpeedListener(this, 1.0));		// add listener
-		normal.setSelected(true);			// normal is the selected button by default
 		
 		JRadioButton hard = new JRadioButton("Hard");		// radio button for hard level
 		hard.addActionListener(new SetSpeedListener(this, 2.0));	// add listener
@@ -165,6 +164,13 @@ public class RobotWars implements ActionListener
 		settings.add(hard);			// settings menu
 		
 		menuBar.add(settings);		// add settings menu to menu bar
+		
+		if (speed == 0.5)
+			easy.setSelected(true);
+		else if (speed == 1.0)
+			normal.setSelected(true);
+		else if (speed == 2.0)
+			hard.setSelected(true);
 		
 		gameFrame.setJMenuBar(menuBar);		// add menu bar to frame
 	}
@@ -188,8 +194,9 @@ public class RobotWars implements ActionListener
 	/** 
 	 * A method to create the city and the city view.
 	 * 
-	 * @param str	The number of visible streets.
-	 * @param ave	The number of visible avenues.
+	 * @param str		The number of visible streets.
+	 * @param ave		The number of visible avenues.
+	 * @param speed		The speed of the random robot.
 	 */
 	private void createCity(int str, int ave, double speed)
 	{
@@ -209,21 +216,21 @@ public class RobotWars implements ActionListener
 		
 		createWalls();		// create walls
 		
-		placeThing();
+		placeThing();		// put a prize in the city
 		
-		RandomRobot karel = new RandomRobot(gameCity, 2, 2, Direction.EAST);
+		RandomRobot karel = new RandomRobot(gameCity, 2, 2, Direction.EAST);		// create a random robot
 		
-		karel.setSpeed(speed);
-		karel.setIcon(new RRIcon());
+		karel.setSpeed(speed);			// set speed (default is normal = 1.0)
+		karel.setIcon(new RRIcon());	// set random robot icon	
 		
-		mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH, this, karel, speed);
-		mark.setIcon(new HRIcon());
+		mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH, this, karel, speed);		// create a human robot
+		mark.setIcon(new HRIcon());			// set icon on human robot
 			
-		Thread karelThread = new Thread(karel);
-		karelThread.start();
+		Thread karelThread = new Thread(karel);		// create thread for ranom robot
+		karelThread.start();		// start random robot thread
 		
-		Thread markThread = new Thread(mark);
-		markThread.start();
+		Thread markThread = new Thread(mark);		// create thread for human robot
+		markThread.start();			// start human robot thread 
 		
 		
 	}
@@ -231,8 +238,6 @@ public class RobotWars implements ActionListener
 	
 	/**
 	 *  A method that restarts the game. 
-	 *  First the main panel is removed and then 
-	 *  new main panel, control panel and city is created.
 	 */
 	public void restart(double speed)
 	{
@@ -300,18 +305,23 @@ public class RobotWars implements ActionListener
 	 */
 	public void placeThing()
 	{
-		Thing thing = new Thing(gameCity, 5, 5);
+		Thing thing = new Thing(gameCity, rand1, rand2);
 		thing.setIcon(new PrizeIcon());		
 	}
 
 	
-	
+	/**
+	 *  Action performed method required by implementing ActionListener.
+	 *  Calls human robot getButton() method.
+	 */
 	public void actionPerformed(ActionEvent e)
 	{
 		mark.getButton(e);  
 	}
 	
-	
+	/**
+	 *  Main method.
+	 */
 	public static void main(String[] args) 
 	{
 		

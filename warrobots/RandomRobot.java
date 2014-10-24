@@ -86,17 +86,19 @@ public class RandomRobot extends WarRobot
     }//End randMove
     
     
-    /**
-     *  ???
-     */
+    //Override the breakRobot function given by Becker
+    //We want to access breakRobot from the outside
     public void breakRobot(String msg)
     {
-  	  try 
-  	  {
-  	  super.breakRobot(msg);
-  	  } catch (Exception e)
-  	  {
-  	  }
-    }
+	try 
+	{
+	    //Try to break the robot (call the super class function)
+	    super.breakRobot(msg);
+	}//End try
+	catch (Exception e)
+	{
+  	}//End catch
+
+    }//End breakRobot
 
 }//EndClass
