@@ -31,7 +31,7 @@ public class RobotWars implements ActionListener
 	
 	private JButton buttonUp, buttonDown, buttonLeft, buttonRight, buttonPick;	// control buttons
 	private HumanRobot mark;
-	private double speed = 0.5;		// double speed for random robot
+	private double speed;		// double speed for random robot
 	
 	
 	/**
@@ -326,7 +326,7 @@ public class RobotWars implements ActionListener
 	public static void main(String[] args) 
 	{
 		
-		RobotWars game = new RobotWars(speed);
+		RobotWars game = new RobotWars(0.5);
 		game.gameOn();
 		
 	} // end main()
