@@ -30,13 +30,14 @@ public class RobotWars implements ActionListener
 	private int rand2 = randomInt(size);	// random integer to place the prize
 	
 	private JButton buttonUp, buttonDown, buttonLeft, buttonRight, buttonPick;	// control buttons
+	private HumanRobot mark;
 	
 	
 	/**
 	 *  A constructor-creates a new frame with a menu bar,
 	 *  controls and a city view.
 	 */
-	public RobotWars(double gameSpeed)
+	public RobotWars(double speed)
 	{
 		gameFrame = new JFrame("Robot Wars");	// create frame
 		gameFrame.setVisible(true);				// set visible
@@ -222,7 +223,7 @@ public class RobotWars implements ActionListener
 		karel.setSpeed(speed);			// set speed (default is normal = 1.0)
 		karel.setIcon(new RRIcon());	// set random robot icon	
 		
-		HumanRobot mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH, this, karel, speed);		// create a human robot
+		mark = new HumanRobot(gameCity, 8, 8, Direction.NORTH, this, karel, speed);		// create a human robot
 		mark.setIcon(new HRIcon());			// set icon on human robot
 			
 		Thread karelThread = new Thread(karel);		// create thread for ranom robot
