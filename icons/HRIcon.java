@@ -24,7 +24,7 @@ public class HRIcon extends Icon
 	super();
 	
 	//getRandImage - safe it in the private field
-	img = getRandImage();
+	img = getImage();
     }//End constructor
 
     //Function to paint the icon
@@ -34,7 +34,7 @@ public class HRIcon extends Icon
     }//End paintIcon
     
     //Function to get the image from a file and return it
-    public BufferedImage getRandImage()
+    public BufferedImage getImage()
     {
 	BufferedImage img = null;
 	
@@ -52,6 +52,6 @@ public class HRIcon extends Icon
 	}//End catch
     
 	return img;
-    }//End getRandImage
+    }//End getImage
 
 }//End class
