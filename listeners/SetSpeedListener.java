@@ -19,11 +19,13 @@ public class SetSpeedListener implements ActionListener
 	this.speed = speed;
 	//Assign the rw to the private attribute of this class
 	this.rw = rw;
-    }
+    }//End constructor
+
     //Method which gets executed if the button/menu item is clicked
     public void actionPerformed(ActionEvent e)
     {
 	//Restart the game set the speed
 	rw.restart(speed);
-    }
-}
+    }//End actionPerformed
+
+}//End class
