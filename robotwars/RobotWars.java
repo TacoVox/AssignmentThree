@@ -149,19 +149,19 @@ public class RobotWars implements ActionListener
 		JRadioButton easy = new JRadioButton("Easy");		// radio button for level easy
 		easy.addActionListener(new SetSpeedListener(this, 0.5));		// add action listener
 		
-		JRadioButton normal = new JRadioButton("Normal");		// radio button for normal level
-		normal.addActionListener(new SetSpeedListener(this, 1.0));		// add listener
+		JRadioButton medium = new JRadioButton("Normal");		// radio button for normal level
+		medium.addActionListener(new SetSpeedListener(this, 1.0));		// add listener
 		
 		JRadioButton hard = new JRadioButton("Hard");		// radio button for hard level
 		hard.addActionListener(new SetSpeedListener(this, 2.0));	// add listener
 		
 		ButtonGroup group = new ButtonGroup();		// button group for radio buttons
 		group.add(easy);		// add radio
-		group.add(normal);		// buttons 
+		group.add(medium);		// buttons 
 		group.add(hard);		// to button group
 		
 		settings.add(easy);			// add radio 
-		settings.add(normal);		// buttons to 
+		settings.add(medium);		// buttons to 
 		settings.add(hard);			// settings menu
 		
 		menuBar.add(settings);		// add settings menu to menu bar
@@ -169,7 +169,7 @@ public class RobotWars implements ActionListener
 		if (speed == 0.5)
 			easy.setSelected(true);
 		else if (speed == 1.0)
-			normal.setSelected(true);
+			medium.setSelected(true);
 		else if (speed == 2.0)
 			hard.setSelected(true);
 		
