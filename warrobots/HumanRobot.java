@@ -13,7 +13,8 @@ import javax.swing.JOptionPane;
 
 //Creating the class HumanRobot that shall be controlled by the user with the GUI
 public class HumanRobot extends WarRobot
-{
+{   
+	//Private fields
 	private Direction currentDir; 
 	private RobotWars rw;
 	private RandomRobot rr;
@@ -27,11 +28,11 @@ public class HumanRobot extends WarRobot
 		super(city, street, avenue, dir);
 		//Assign currentDir to dir
 		currentDir = dir;
-		//Assign this.rw = rw
+		//Assign this.rw to rw
 		this.rw = rw;
-		
+		//Assign this.rr to rr
 		this.rr = rr;
-		
+		//Assign this.gameSpeed to speed
 		this.gameSpeed = speed;
 	}
 	
@@ -53,7 +54,7 @@ public class HumanRobot extends WarRobot
 		}
 		else if (e.getActionCommand()=="pick") //If you press pick button
 		{
-			wantToPick = true;              
+			wantToPick = true; //pick up thing
 		}
 	}
 	
@@ -72,18 +73,18 @@ public class HumanRobot extends WarRobot
 					
 					if(currentDir != getDirection()) //If the robots direction is not the same as
 					{								 //the getDirection is true, then do thing below
-						if(currentDir == Direction.NORTH) //if
-							goNorth();
-						else if(currentDir == Direction.EAST)
-								goEast();
-						else if(currentDir == Direction.SOUTH)
-								goSouth();
+						if(currentDir == Direction.NORTH) //If the current direction is north
+							goNorth();					  //then go north
+						else if(currentDir == Direction.EAST) //If the current direction is east
+								goEast();					  //then go east
+						else if(currentDir == Direction.SOUTH)//If the current direction is south
+								goSouth();  				  // then go south
 								
 						else 
-							goWest();
+							goWest();		//If the current direction is west, then go west
 					}
 					else 
-						move();
+						move();				//After that move
 				}
 	}
 	
@@ -145,42 +146,46 @@ public class HumanRobot extends WarRobot
 	//Creating a pickThing method
 	public void pickThing()
 	{
-		if(canPickThing())
-		{
-			super.pickThing();
-			try
+		if(canPickThing())     //If the robot can pick up thing
+		{					   //
+			super.pickThing(); //then pick thing
+			try				//After this is runned the existing program shall close
 			{
-				rr.breakRobot("nice game");
-			} catch (Exception e)
+				rr.breakRobot("nice game"); //Break randomRobot
+			} catch (Exception e)		//creat a catch expression
 			{
 			}
-			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restart game?", "Game Over", JOptionPane.YES_NO_OPTION);
-					if(choice == JOptionPane.YES_OPTION)
+			int choice = JOptionPane.showConfirmDialog(null, "You win! \n Restart game?", 				 //Creating a JOptionPane for to say if you want to play
+																"Game Over", JOptionPane.YES_NO_OPTION); //again or quit
+					if(choice == JOptionPane.YES_OPTION)	//If press yes, restart game
 						rw.restart(gameSpeed);
 					else
-						rw.quit();
+						rw.quit();	//If press no quit
 		}
+		else
+			wantToPick = false;
 	}
 	
 	
-	@Override
-	public void breakRobot(String msg)
+	@Override //Override the breakRobot method
+	public void breakRobot(String msg) 
 	{
-	    rw.pause();
-	    try
+	    rw.pause();	//Pause the game
+	    try			//After this is runned exit the existing program
 	    {
-		super.breakRobot(msg);
-	    } catch (Exception e)
+	    	super.breakRobot(msg); //Calling super
+	    } catch (Exception e)  //creat a catch exeption
 	    {
 	    }
 		
-	    int choice = JOptionPane.showConfirmDialog(null, "You lose! \n Restart game?", "Game Over", JOptionPane.YES_NO_OPTION);
-	    if(choice == JOptionPane.YES_OPTION)
+	    int choice = JOptionPane.showConfirmDialog(null, "You lose! \n Restart game?", //Creating JOptionPane if you lose u can choose yes or 
+	    															"Game Over", JOptionPane.YES_NO_OPTION); //no if you want to restart
+	    if(choice == JOptionPane.YES_OPTION) //If Yes, restart
 	    {
-		rw.restart(gameSpeed);
+	    	rw.restart(gameSpeed); //set the new gamespeed to the next game
 	    }
 	    else
-		rw.quit();
+	    	rw.quit(); //If No, quit
 		
 	}
 }
