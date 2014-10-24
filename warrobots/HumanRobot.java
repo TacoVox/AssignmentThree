@@ -162,6 +162,8 @@ public class HumanRobot extends WarRobot
 					else
 						rw.quit();	//If press no quit
 		}
+		else
+			wantToPick = false;
 	}
 	
 	
