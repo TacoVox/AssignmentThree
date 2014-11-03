@@ -1,4 +1,4 @@
-//
+//import packages
 package robotwars;
 
 import warrobots.*;
@@ -242,17 +242,18 @@ public class RobotWars implements ActionListener
 	 */
 	public void restart(double speed)
 	{
-		if (paused)
-		{
-			RobotWars game = new RobotWars(speed);
-			game.gameOn();
-		}
-		else 
-		{
-			prButton.doClick();
-			RobotWars game = new RobotWars(speed);
-			game.gameOn(); 
-		}
+	    this.gameFrame.setVisible(false);
+	    if (paused)
+	    {
+		RobotWars game = new RobotWars(speed);
+		game.gameOn();
+	    }
+	    else 
+	    {
+		prButton.doClick();
+		RobotWars game = new RobotWars(speed);
+		game.gameOn(); 
+	    }
 	}
 	
 	
